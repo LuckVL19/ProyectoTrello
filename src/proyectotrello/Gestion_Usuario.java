@@ -73,10 +73,10 @@ public class Gestion_Usuario {
     }
     
     
-        public lista pendiente = new lista();
-        public lista asignada = new lista();
-        public lista enCurso = new lista();
-        public lista completadas = new lista();
+        lista pendiente = new lista();
+        lista asignada = new lista();
+        lista enCurso = new lista();
+        lista completadas = new lista();
     
         public void agregarTarea(tarea nuevaTarea) {
             switch (nuevaTarea.estado.toLowerCase()){

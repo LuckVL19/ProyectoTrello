@@ -41,7 +41,7 @@ public class ProyectoTrello {
         System.out.println("Tarea creada");
         
         System.out.println("/ntodas las tareas:");
-        listas.verTodasTareas();
+        tareas.verTodasTareas();
         
         
         sc.close();

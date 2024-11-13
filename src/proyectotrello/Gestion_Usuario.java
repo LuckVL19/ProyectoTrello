@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package proyectotrello;
-import java.io.*;
 
 /**
  *
@@ -45,18 +44,70 @@ public class Gestion_Usuario {
         nuevoEspacio.tarea = nuevaTarea;
         nuevoEspacio.sig = null;
         
-        if (L == null) {
-            L = nuevoEspacio;
-        } else {
-            aux = L;
-            while (aux.sig != null) {
-                aux = aux.sig;
-                aux.sig = nuevoEspacio;
+            if (L == null) {
+                L = nuevoEspacio;
+            } else {
+                aux = L;
+                while (aux.sig != null) {
+                    aux = aux.sig;
+                    aux.sig = nuevoEspacio;
+                }
             }
         }
         
+        public void verTarea() {
+          aux = L;
+          if (aux == null){
+              System.out.println("no hay ninguna tarea");
+          } else {
+              while (aux != null){
+                  System.out.println(aux.tarea.titulo);
+                  System.out.println(aux.tarea.descripcion);
+                  System.out.println(aux.tarea.fecha);
+                  System.out.println(aux.tarea.estado);
+                  System.out.println();
+                  aux = aux.sig;
+              }
+          }
+        }
     }
-
-}
+    
+    
+        public lista pendiente = new lista();
+        public lista asignada = new lista();
+        public lista enCurso = new lista();
+        public lista completadas = new lista();
+    
+        public void agregarTarea(tarea nuevaTarea) {
+            switch (nuevaTarea.estado.toLowerCase()){
+                case "pendiente":
+                    pendiente.creaTarea(nuevaTarea);
+                    break;
+                case "asignada":
+                    asignada.creaTarea(nuevaTarea);
+                    break;
+                case "en Curso":
+                    enCurso.creaTarea(nuevaTarea);
+                    break;
+                case "completadas":
+                    completadas.creaTarea(nuevaTarea);
+                    break;
+                default:
+                    System.out.println("no se ha podido agregar la tarea");
+                    break;
+            }
+        }
+    
+        public void verTodasTareas() {
+            System.out.println("tareas pendientes");
+            pendiente.verTarea();
+            System.out.println("tareas asignadas");
+            asignada.verTarea();
+            System.out.println("tareas en curso");
+            enCurso.verTarea();
+            System.out.println("tareas completadas");
+            completadas.verTarea();
+        }
+    
     
 }

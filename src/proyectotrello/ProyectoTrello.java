@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package proyectotrello;
-import java.io.*;
 import java.util.Scanner;
 
 /**
@@ -22,6 +21,7 @@ public class ProyectoTrello {
         
         Gestion_Usuario.lista listas = tareas.new lista();
         
+        
         Scanner sc = new Scanner(System.in);
         String titulo, descripcion, fecha, estado;
         
@@ -31,14 +31,18 @@ public class ProyectoTrello {
         descripcion = sc.nextLine();
         System.out.println("Introduce la fecha limite de la tarea");
         fecha = sc.nextLine();
-        System.out.println("Introduce el estado de la tarea");
+        System.out.println("introduce el estado de la tarea");
         estado = sc.nextLine();
         
         Gestion_Usuario.tarea nuevaTarea = tareas.new tarea(titulo, descripcion, fecha, estado);
         
         listas.creaTarea(nuevaTarea);
         
-        System.out.println("Tarea creada con exito");
+        System.out.println("Tarea creada");
+        
+        System.out.println("/ntodas las tareas:");
+        listas.verTodasTareas();
+        
         
         sc.close();
         

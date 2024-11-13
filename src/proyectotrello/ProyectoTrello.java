@@ -5,6 +5,8 @@
  */
 package proyectotrello;
 import java.util.Scanner;
+import java.io.IOException;
+
 
 /**
  *
@@ -21,9 +23,13 @@ public class ProyectoTrello {
         
         Gestion_Usuario.lista listas = tareas.new lista();
         
+        Gestion_Usuario.lista pendiente = tareas.new lista();
+        Gestion_Usuario.lista asignada = tareas.new lista();
+        Gestion_Usuario.lista enCurso = tareas.new lista();
+        Gestion_Usuario.lista completadas = tareas.new lista();
         
         Scanner sc = new Scanner(System.in);
-        String titulo, descripcion, fecha, estado;
+        String titulo, descripcion, fecha;
         
         System.out.println("Introduce el titulo de la tarea");
         titulo = sc.nextLine();
@@ -31,18 +37,21 @@ public class ProyectoTrello {
         descripcion = sc.nextLine();
         System.out.println("Introduce la fecha limite de la tarea");
         fecha = sc.nextLine();
-        System.out.println("introduce el estado de la tarea");
-        estado = sc.nextLine();
         
-        Gestion_Usuario.tarea nuevaTarea = tareas.new tarea(titulo, descripcion, fecha, estado);
+        Gestion_Usuario.tarea nuevaTarea = tareas.new tarea(titulo, descripcion, fecha);
         
         listas.creaTarea(nuevaTarea);
         
         System.out.println("Tarea creada");
         
-        System.out.println("/ntodas las tareas:");
-        tareas.verTodasTareas();
-        
+        try {
+            pendiente.guardarListaEnArchivo("pendiente.txt");
+            asignada.guardarListaEnArchivo("asignada.txt");
+            enCurso.guardarListaEnArchivo("enCurso.txt");
+            completadas.guardarListaEnArchivo("completadas.txt");
+        } catch (IOException e) {
+            System.out.println("Error al guardar las listas: ");
+        }
         
         sc.close();
         

@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 package proyectotrello;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 
 /**
  *
@@ -111,25 +107,7 @@ public class Gestion_Usuario {
             System.out.println("no se encontro la tarea con el titulo " + titulo);
             return false;
         }
-        //esta funcion es para poder crear un archivo txt
-        // verifica si ya existe un archivo de la lista o no
-        public void guardarListaEnArchivo(String nombreArchivo) throws IOException {
-            
-            File file = new File(nombreArchivo);
-            
-             if (!file.exists()) {
-                file.createNewFile();
-            }
-            BufferedWriter escri = new BufferedWriter(new FileWriter(nombreArchivo));
-            nodo aux = L;
-            while (aux != null) {
-                escri.write(aux.tarea.toString());
-                escri.newLine();
-                aux = aux.sig;
-            }
-            escri.close();
-            System.out.println("lista guardada en " + nombreArchivo);
-        }
+
         //funcion para asignar una tarea de la lista pendiente a un usuario
         public boolean asigUserTarea (String titulo, String usuario) {
             aux = L;
@@ -148,7 +126,21 @@ public class Gestion_Usuario {
             return false;
         }
     
-  
+        public boolean actualizarTarea(String titulo, String newTitulo, String newDescripcion, String newFecha) {
+            aux = L;
+            while (aux != null) {
+                if (aux.tarea.titulo.equals(titulo)) {
+                    aux.tarea.titulo = newTitulo;
+                    aux.tarea.descripcion = newDescripcion;
+                    aux.tarea.fecha = newFecha;
+                    System.out.println("tarea actualizada");
+                    return true;
+                }
+                aux = aux.sig;
+            }
+            System.out.println("no se encontró la tarea con el título " + titulo);
+            return false;
+        }
     
         lista pendiente = new lista();
         lista asignada = new lista();
@@ -156,8 +148,6 @@ public class Gestion_Usuario {
         lista completadas = new lista();
     }
         
-    
-    
 }
 
 

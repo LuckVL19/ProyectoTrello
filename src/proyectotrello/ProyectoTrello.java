@@ -29,7 +29,7 @@ public class ProyectoTrello {
         Gestion_Usuario.lista completadas = tareas.new lista();
         
         Scanner sc = new Scanner(System.in);
-        String titulo, descripcion, fecha;
+        String titulo, descripcion, fecha, asigUser;
         
         System.out.println("Introduce el titulo de la tarea");
         titulo = sc.nextLine();
@@ -38,20 +38,11 @@ public class ProyectoTrello {
         System.out.println("Introduce la fecha limite de la tarea");
         fecha = sc.nextLine();
         
-        Gestion_Usuario.tarea nuevaTarea = tareas.new tarea(titulo, descripcion, fecha);
+        Gestion_Usuario.tarea nuevaTarea = tareas.new tarea(titulo, descripcion, fecha, String asigUser);
         
         listas.creaTarea(nuevaTarea);
         
         System.out.println("Tarea creada");
-        
-        try {
-            pendiente.guardarListaEnArchivo("pendiente.txt");
-            asignada.guardarListaEnArchivo("asignada.txt");
-            enCurso.guardarListaEnArchivo("enCurso.txt");
-            completadas.guardarListaEnArchivo("completadas.txt");
-        } catch (IOException e) {
-            System.out.println("Error al guardar las listas: ");
-        }
         
         sc.close();
         

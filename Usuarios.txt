@@ -1,0 +1,15 @@
+Juan Perez 12345678 jperez usuario1 admin password123
+Maria Lopez 87654321 mlopez usuario2 user password234
+Carlos Gomez 11223344 cgomez usuario3 user password345
+Ana Martinez 55667788 amartinez usuario4 user password456
+Luis Fernandez 33445566 lfernandez usuario5 admin password567
+Carmen Rojas 99887766 crojas usuario6 editor password678
+Jose Torres 44332211 jtorres usuario7 user password789
+Elena Sanchez 22334455 esanchez usuario8 admin password890
+Daniel Vargas 66554433 dvargas usuario9 user password901
+Laura Garcia 77889900 lgarcia usuario10 user password012
+Miguel Diaz 12344321 mdiaz usuario11 user password1234
+Patricia Suarez 32112345 psuarez usuario12 admin password2345
+Fernando Ruiz 87651234 fruiz usuario13 user password3456
+Valeria Jimenez 11225533 vjimenez usuario14 user password4567
+Ricardo Silva 99884477 rsilva usuario15 admin password5678
